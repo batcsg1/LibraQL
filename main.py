@@ -45,7 +45,7 @@ class Collection:
         self.engine.data[self.name].append(data)
         self.engine._save()
 
-    def find_all(self):
+    def find(self):
         return self.engine.data.get(self.name, [])
 
 
