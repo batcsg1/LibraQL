@@ -6,11 +6,14 @@ from toon import encode, decode
 class Engine:
     def __init__(self, db_name="db.toon"):
         self.db_name = db_name
-        self.registry = self._load()
+        self.data = self._load()
     
     # loads the database from the TOON file
     def _load(self):
         if not os.path.exists(self.db_name):
+            print(f"Database file {self.db_name} not found. Creating a new one.")
+            with open(self.db_name, 'w') as f:
+                f.write("")
             return {}
         with open(self.db_name, 'r') as f:
             encoded_data = f.read()
@@ -18,15 +21,14 @@ class Engine:
         return decoded_data if decoded_data else {}
     
     # saves the current state of the database to the TOON file
-    def _save(self):
+    def _commit(self):
         with open(self.db_name, 'w') as f:
-            encoded_data = encode(self.registry)
+            encoded_data = encode(self.data)
             f.write(encoded_data)
 
-
     def collection(self, name):
-        if name not in self.registry:
-            self.registry[name] = []
+        if name not in self.data:
+            self.data[name] = []
         return Collection(self, name)
     
 
@@ -36,17 +38,17 @@ class Collection:
         self.name = name
 
     def insert(self, data):
-        self.engine.registry[self.name].append(data)
+        self.engine.data[self.name].append(data)
         self.engine._save()
 
     def find_all(self):
-        return self.engine.registry.get(self.name, [])
+        return self.engine.data.get(self.name, [])
 
 
 db = Engine("my_database.toon")
 
-users = db.collection("users")
-users.insert({"name": "Alice", "age": 30})
-users.insert({"name": "Bob", "age": 25})
+# users = db.collection("users")
+# users.insert({"name": "Alice", "age": 30})
+# users.insert({"name": "Bob", "age": 25})
 
-print(users.find_all())
+# print(users.find_all())
