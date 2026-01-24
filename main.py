@@ -27,9 +27,12 @@ class LibraQL:
     # saves the current state of the database to the TOON file
     def _save(self):
         with open(self.db_name, 'w') as f:
-            encoded_data = encode(self.data)
-            f.write(encoded_data)
-
+            try:
+                encoded_data = encode(self.data)
+                f.write(encoded_data)
+            except Exception as e:
+                print(f"Error writing to database file: {e}")
+            
     def collection(self, name):
         if name not in self.data:
             self.data[name] = []
