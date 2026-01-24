@@ -46,16 +46,18 @@ class Collection:
         print(f"Collection '{self.name}' initialized.")
 
     def insert(self, data):
+        print(f"Inserting data into collection '{self.name}': {data}")
         self.engine.data[self.name].append(data)
         self.engine._save()
 
     def find(self, query=None):
+        print(f"Finding data in collection '{self.name}'")
         data = self.engine.data.get(self.name, [])
 
         # If no query is provided, return all records
         if not query:
             return data
-        
+                
         # Filter based on query
         results = []
         for item in data:
@@ -70,9 +72,9 @@ class Collection:
 
 db = LibraQL("my_database.toon")
 
-# Example usage:
+# #Example usage:
 
 # users = db.collection("users")
 # users.insert({"name": "Alice", "age": 30})
 # users.insert({"name": "Bob", "age": 25})
-# print(users.find())
+# print(users.find({"age": 25}))
