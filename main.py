@@ -3,7 +3,7 @@ from toon import encode, decode
 
 # the main database engine which reads and writes to a TOON file
 
-class Engine:
+class LibraQL:
     def __init__(self, db_name="db.toon"):
         self.db_name = db_name
         self.data = self._load()
@@ -49,7 +49,7 @@ class Collection:
         return self.engine.data.get(self.name, [])
 
 
-db = Engine("my_database.toon")
+db = LibraQL("my_database.toon")
 
 # users = db.collection("users")
 # users.insert({"name": "Alice", "age": 30})
