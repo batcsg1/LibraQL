@@ -80,44 +80,47 @@ class Collection:
         self.engine._save()
 
     # Select from the collection
-    def find(self, query=None):
+    def find(self, query=None, select=None):
         logger._log(f"FIND: Finding data in collection '{self.name}'", colors.info)
 
         # Get the data from the collection list, return an empty list if there is no data, hence the '[]'
         data = self.engine.data.get(self.name, [])
 
         # If no query is provided, return all records
-        if not query:
-            logger._log("No query provided, returning all records.")
-            #return encode(data)
-            return encode(data)
-                
-        # Find items that match what is specified in the query
-        def matches(item):
-            # Check each key-value pair in the query
-            for k, v in query.items():
+        if query:              
+            # Find items that match what is specified in the query
+            def matches(item):
+                # Check each key-value pair in the query
+                for k, v in query.items():
+                    #{"age": {"$gt": 25}} Query example
+                    
+                    #query.items() = dict_items([( k: 'age', v: {'$gt': 25})])
 
-                #{"age": {"$gt": 25}} Query example
-                
-                #query.items() = dict_items([( k: 'age', v: {'$gt': 25})])
+                    # Get the current value of the item from the collection
 
-                # Get the current value of the item from the collection
+                    val = item.get(k) #E.g. val = {"age": 25}, val would be 25
 
-                val = item.get(k) #E.g. val = {"age": 25}, val would be 25
+                    # if the value (v) of the query is a dictionary
+                    if isinstance(v, dict):
+                        # Logical check for operators
+                        if "$gt" in v and not (val > v["$gt"]): return False
+                        if "$lt" in v and not (val < v["$lt"]): return False
+                        if "$gte" in v and not (val >= v["$gte"]): return False
+                        if "$lte" in v and not (val <= v["$lte"]): return False
+                    elif val != v:
+                        return False
+                return True
+            # Filter the data collection for values that match what was asked for in the query and return the results as a list
+            data = list(filter(matches, data))
+        else:
+            logger._log("No query provided, using all records.")
 
-                # if the value (v) of the query is a dictionary
-                if isinstance(v, dict):
-                    # Logical check for operators
-                    if "$gt" in v and not (val > v["$gt"]): return False
-                    if "$lt" in v and not (val < v["$lt"]): return False
-                    if "$gte" in v and not (val >= v["$gte"]): return False
-                    if "$lte" in v and not (val <= v["$lte"]): return False
-                elif val != v:
-                    return False
-            return True
+        # If certain fields are selected, filter the data to only include those fields
+        if select and isinstance(select, dict):
+            data = [
+                {k: v for k, v in item.items() if select.get(k, False)} for item in data
+            ]
 
-        # Filter the data collection for values that match what was asked for in the query and return the results as a list
-        data = list(filter(matches, data))
         return encode(data)
 
     # Update the collection
