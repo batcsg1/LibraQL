@@ -1,10 +1,15 @@
 import os
 from toon import encode, decode
+from logger import Colors, Logger
+
+logger = Logger(".\logs\log")
+colors = Colors()
 
 # the main database engine which reads and writes to a TOON file (Data persistence layer)
 class LibraQL:
     # Name and load the database file
     def __init__(self, db_name="db.toon"):
+        logger._log(colors.success, f"Intializing database with filename: {db_name}")
         self.db_name = db_name
         self.data = self._load()
     
