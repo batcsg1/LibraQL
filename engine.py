@@ -80,7 +80,7 @@ class Collection:
         self.engine._save()
 
     # Select from the collection
-    def find(self, raw=False, query=None):
+    def find(self, query=None):
         logger._log(f"FIND: Finding data in collection '{self.name}'", colors.info)
 
         # Get the data from the collection list, return an empty list if there is no data, hence the '[]'
@@ -90,7 +90,7 @@ class Collection:
         if not query:
             logger._log("No query provided, returning all records.")
             #return encode(data)
-            return data if not raw else encode(data)
+            return encode(data)
                 
         # Find items that match what is specified in the query
         def matches(item):
@@ -118,7 +118,7 @@ class Collection:
 
         # Filter the data collection for values that match what was asked for in the query and return the results as a list
         data = list(filter(matches, data))
-        return data if not raw else encode(data)
+        return encode(data)
 
     # Update the collection
     def update(self, query, new_data):
