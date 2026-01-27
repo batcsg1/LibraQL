@@ -86,7 +86,7 @@ class Collection:
         # Get the data from the collection list, return an empty list if there is no data, hence the '[]'
         data = self.engine.data.get(self.name, [])
 
-        # If no query is provided, return all records
+        # Query the data
         if query:              
             # Find items that match what is specified in the query
             def matches(item):
@@ -113,6 +113,7 @@ class Collection:
             # Filter the data collection for values that match what was asked for in the query and return the results as a list
             data = list(filter(matches, data))
         else:
+            # If no query is provided, return all records
             logger._log("No query provided, using all records.")
 
         # If certain fields are selected, filter the data to only include those fields
