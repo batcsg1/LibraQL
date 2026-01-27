@@ -8,7 +8,7 @@ class Colors:
         self.reset = '\033[0m'
 
 class Logger:
-    def __init__(self, logFile = '.\logs\log' ):
+    def __init__(self, logFile = './logs/log' ):
         self.logFile = logFile
         self.colors = Colors()
     
