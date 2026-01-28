@@ -7,6 +7,12 @@
 - ⚠️ The project is under very active development.
 - ⚠️ Expect bugs and breaking changes.
 
+## Contents
+- [About the Project](#about-the-project)
+- [Database Storage](#database-storage)
+- [Data Access](#data-access)
+- [Manual](#manual)
+
 ---
 # About the Project
 
@@ -63,6 +69,8 @@ The query language for **LibraQL**, is heavily inspired by the query language us
 | Finding data | `users.find()` | `SELECT * FROM users;` |
 | Updating data | `users.update({"name": "Brent"}, {"age": 34})` | `UPDATE users SET age = 34 WHERE name = 'Brent'; ` |
 | Deleting data | `users.delete({"name" "Brent"})` | `DELETE FROM users WHERE name = "Brent";` |
+
+### Manual
 
 
 
