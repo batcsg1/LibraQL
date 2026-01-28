@@ -6,7 +6,7 @@ logger = Logger(".\logs\log")
 colors = Colors()
 
 # the main database engine which reads and writes to a TOON file (Data persistence layer)
-class LibraQL:
+class LibraDB:
     # Name and load the database file
     def __init__(self, db_name="db.toon"):
         logger._log(f"Intializing database with filename: {db_name}", colors.info)
