@@ -70,7 +70,113 @@ The query language for **LibraQL**, is heavily inspired by the query language us
 | Updating data | `users.update({"name": "Brent"}, {"age": 34})` | `UPDATE users SET age = 34 WHERE name = 'Brent'; ` |
 | Deleting data | `users.delete({"name" "Brent"})` | `DELETE FROM users WHERE name = "Brent";` |
 
-### Manual
+## Manual
+
+### Git and Git Bash
+To get started with this project and or/contributing to it, you will use [**Git**](https://git-scm.com/)
+and the **Git Bash** terminal. 
+
+If you are a Mac user, or a Linux user you can just use the terminal that comes with your computer.
+
+But for Windows users however, it is recommended you use a better terminal. You could use Command Prompt or PowerShell, but I wouldn't recommend it!.
+
+You will make life easier for yourself by using a more professional looking terminal, and that is why Git Bash is recommended.
+
+You can download the latest version of the Git Bash terminal from the offical Git website:
+
+[https://git-scm.com/](https://git-scm.com/)
+
+#### Verify installation
+Once you have **Git Bash** installed on your computer, you can run the following command below to verify the installation of Git.
+
+```bash
+git --version
+```
+> **Note:** When installed correctly, you will see the version number. `git version 2.45.0.windows.1`
+
+### Cloning the project repo
+To get started open the **Git Bash** terminal and run the following command:
+
+```bash
+git clone https://github.com/batcsg1/LibraDB
+```
+Wherever you cloned the repo on your machine, you can change into the directory where the repo is. You can run the following command, if you cloned the repo within your current working directory.
+
+```
+cd LibraDB
+```
+
+### Coding text editor
+
+For this project you will need some editor, preferablly an IDE such as [**VSCode**](https://code.visualstudio.com/) or a basic text editor such as [**Sublime Text**](https://www.sublimetext.com/).
+
+Once VSCode or Sublime Text have been installed, you can open the repo in the editor. To open the repo in VSCode, you can run this one-line command in Git Bash, to show off how much of a nerd you are
+
+```bash
+code LibraDB
+```
+> **Note:** This particular command will work if the repo is within your current working directory
+
+You will now want to open up a new Git Bash terminal window in your editor. In VSCode you can start by launching the terminal by selecting the `'Terminal'` option from the `☰` dropdown menu in the top left corner.
+
+In your terminal window, you can run the command `bash` to open a new **Git Bash** session.
+
+You should see a new prompt appear, similar-ish to this:
+![alt text](./assets/bash.png)
+
+### Setting up Python
+
+This project uses Python 3, so if you don't have it already, it's important to update to the latest version.
+
+#### macOS
+If you are a Mac user, your computer will most likely come with a pre-installed version of Python, but it will usually be a Python 2.x version. Here is an article by **GeeksForGeeks** below to help with Python installation on macOS:
+
+[https://www.geeksforgeeks.org/python/how-to-install-python-on-mac/](https://www.geeksforgeeks.org/python/how-to-install-python-on-mac/)
+
+#### Windows
+For Windows users, you can just download Python 3.12 or 3.13 from the Microsoft Store. Or you could download Python from the offical website:
+
+[https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
+
+#### Linux
+Whereas for Linux users, Python is simply pre-installed by default.
+
+#### Verify installation
+Run the following command in your terminal:
+```py
+python --version
+```
+> **Note:** If installed correctly you will see the version number: **`Python 3.11.9`**
+
+Check if Python's package manager (**pip**) has been installed:
+
+```py
+pip --version
+```
+> **Note:** If installed, the version of **pip** will display **`pip 25.1.1`**
+
+### Virtual Environment
+A **virtual Python environment** will be setup to isolate this project's dependencies from other **Python** projects you may have on your machine. This is to mitigate potential dependency conflicts.
+
+#### Creating a Virtual Environment
+To setup the **virtual environment**, you can use the built-in Python module `venv`. 
+
+Run the following command in your terminal:
+
+```py
+python -m venv .venv
+```
+This will create a new directory called `.venv` in the root directory of this project.
+
+
+
+
+
+
+
+
+
+
 
 
 
