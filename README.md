@@ -173,10 +173,16 @@ On Windows, run the following command:
 ```
 On macOS or Linux, run this command:
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 Once the virtual environment is activated, you should see the name of it in your terminal prompt.
 
+#### Install dependencies
+To install the dependencies for this projects, run the following command: 
+```bash
+pip install -r requirements.txt
+```
+This will install the dependencies as specified in the `requirements.txt` file on the root of this repo.
 
 
 
