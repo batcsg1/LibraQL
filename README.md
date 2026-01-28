@@ -9,9 +9,11 @@
 
 # About the Project
 
+LibraQL is all about making the functionalities from interacting with a database easier like never before. It serves as a lightweight database management system, that is totally serverless, and is designed to make your life a whole lot easier, when it comes to data management anyways.
+
 ## Database Storage:
 ### Bye Bye JSON...
-There are many No-SQL DBMS's out there, in particular document DBMS's such as **MongoDB**, **CouchDB** and **RavenDB**. All of these DBMS's store data in a JSON-like format. Now if you're wondering what heck [JSON](https://en.wikipedia.org/wiki/JSON) is all about, it is simply a very popular data format that is primarly used by web applications. It is short for (_*JavaScript Object Notation*_).
+There are many No-SQL **DBMS's** out there, in particular document **DBMS's** such as **MongoDB**, **CouchDB** and **RavenDB**. All of these DBMS's store data in a **_JSON-like_** format. Now if you're wondering what heck [JSON](https://en.wikipedia.org/wiki/JSON) is all about, it is simply a very popular data format that is primarly used by web applications. It is short for (_*JavaScript Object Notation*_).
 
 The problem with **JSON** however, is that is not a particularly token efficent format, in laymans term's meaning there are many redundant characters such as **brackets** `[]`, **braces** `{}`, **quotes**: `""` and **commas** `,`. This inflated amount of tokens can get very hard to read for tools like **DBMS's** to process, particularly when reading through **large** datasets.
 
