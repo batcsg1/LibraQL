@@ -74,20 +74,15 @@ The query language for **LibraQL**, is heavily inspired by the query language us
 
 ### Git and Git Bash
 To get started with this project and or/contributing to it, you will use [**Git**](https://git-scm.com/)
-and the **Git Bash** terminal. 
+and a terminal of your choosing. 
 
 If you are a Mac user, or a Linux user you can just use the terminal that comes with your computer.
 
-But for Windows users however, it is recommended you use a better terminal. You could use Command Prompt or PowerShell, but I wouldn't recommend it!.
+But for Windows users however, you can could use Command Prompt or PowerShell.
 
-You will make life easier for yourself by using a more professional looking terminal, and that is why Git Bash is recommended.
-
-You can download the latest version of the Git Bash terminal from the offical Git website:
-
-[https://git-scm.com/](https://git-scm.com/)
 
 #### Verify installation
-Once you have **Git Bash** installed on your computer, you can run the following command below to verify the installation of Git.
+Once you have **Git** installed on your computer, you can run the following command below to verify the installation of Git.
 
 ```bash
 git --version
@@ -95,7 +90,7 @@ git --version
 > **Note:** When installed correctly, you will see the version number. `git version 2.45.0.windows.1`
 
 ### Cloning the project repo
-To get started open the **Git Bash** terminal and run the following command:
+To get started and run the following command in your terminal:
 
 ```bash
 git clone https://github.com/batcsg1/LibraDB
@@ -110,19 +105,14 @@ cd LibraDB
 
 For this project you will need some editor, preferablly an IDE such as [**VSCode**](https://code.visualstudio.com/) or a basic text editor such as [**Sublime Text**](https://www.sublimetext.com/).
 
-Once VSCode or Sublime Text have been installed, you can open the repo in the editor. To open the repo in VSCode, you can run this one-line command in Git Bash, to show off how much of a nerd you are
+Once VSCode or Sublime Text have been installed, you can open the repo in the editor. To open the repo in VSCode, you can run this one-line command in your terminal, to show off how much of a nerd you are:
 
 ```bash
 code LibraDB
 ```
-> **Note:** This particular command will work if the repo is within your current working directory
+> **Note:** This particular command will work if the repo is within your current working directory hence the `LibraDB` without any `\` slashes.
 
-You will now want to open up a new Git Bash terminal window in your editor. In VSCode you can start by launching the terminal by selecting the `'Terminal'` option from the `☰` dropdown menu in the top left corner.
-
-In your terminal window, you can run the command `bash` to open a new **Git Bash** session.
-
-You should see a new prompt appear, similar-ish to this:
-![alt text](./assets/bash.png)
+You will now want to open up a new terminal window in your editor. In VSCode you can start by launching the terminal by selecting the `'Terminal'` option from the `☰` dropdown menu in the top left corner.
 
 ---
 
@@ -160,7 +150,7 @@ pip --version
 ---
 
 ### Virtual Environment
-A **virtual Python environment** will be setup to isolate this project's dependencies from other **Python** projects you may have on your machine. This is to mitigate potential dependency conflicts.
+A **virtual Python environment** will be setup to isolate this project's dependencies from other **Python** projects you may have on your machine. This is to mitigate potential dependency conflicts between different Python projects.
 
 #### Creating a Virtual Environment
 To setup the **virtual environment**, you can use the built-in Python module `venv`. 
@@ -171,6 +161,18 @@ Run the following command in your terminal:
 python -m venv .venv
 ```
 This will create a new directory called `.venv` in the root directory of this project.
+
+#### Activating the Virtual Environment
+On Windows, run the following command:
+```pwsh
+.venv\Scripts\activate
+```
+On macOS or Linux, run this command:
+```bash
+source venv/bin/activate
+```
+Once the virtual environment is activated, you should see the name of it in your terminal prompt.
+
 
 
 
