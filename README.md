@@ -38,7 +38,7 @@ However **LibraQL** utilizes a new revolutionary data format called **TOON** _(T
     }
 ]
 ```
-**JSON**: **_only 3 lines of code!!_**
+**TOON**: **_only 3 lines of code!!_**
 
 ```toon
 users: id,name,role
