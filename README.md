@@ -124,6 +124,8 @@ In your terminal window, you can run the command `bash` to open a new **Git Bash
 You should see a new prompt appear, similar-ish to this:
 ![alt text](./assets/bash.png)
 
+---
+
 ### Setting up Python
 
 This project uses Python 3, so if you don't have it already, it's important to update to the latest version.
@@ -154,6 +156,8 @@ Check if Python's package manager (**pip**) has been installed:
 pip --version
 ```
 > **Note:** If installed, the version of **pip** will display **`pip 25.1.1`**
+
+---
 
 ### Virtual Environment
 A **virtual Python environment** will be setup to isolate this project's dependencies from other **Python** projects you may have on your machine. This is to mitigate potential dependency conflicts.
